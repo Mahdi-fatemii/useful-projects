@@ -1,3 +1,6 @@
+import time
+
+#***************************bubble**********************************
 
 def bubble_sort(x):
     n = len(x)
@@ -12,7 +15,7 @@ def bubble_sort(x):
                          
     return x
 
-#*************************************************************
+#******************************selection*******************************
 
 def selection_sort(x):
     n = len(x)
@@ -29,7 +32,7 @@ def selection_sort(x):
     
     return x
 
-#************************************************************************
+#***********************************insertion*************************************
 
 def insertion_sort(arr):
     # Traverse through 1 to len(arr)
@@ -45,7 +48,7 @@ def insertion_sort(arr):
         arr[j + 1] = key
     return arr
 
-#************************************************************************
+#************************************merge************************************
 
 def merge_sort(arr):
     if len(arr) <= 1:
@@ -83,7 +86,7 @@ def merge(left, right):
 
     return merged_arr
 
-#*******************************************************
+#*************************quick******************************
 
 def quick_sort(arr):
     if len(arr) <= 1:
@@ -94,7 +97,7 @@ def quick_sort(arr):
         greater = [x for x in arr[1:] if x > pivot]
         return quick_sort(less) + [pivot] + quick_sort(greater)
 
-#*********************************************************
+#****************************heap*****************************
 def heapify(arr, n, i):
     largest = i
     left = 2 * i + 1
@@ -124,7 +127,7 @@ def heap_Sort(arr):
         heapify(arr, i, 0)
 
 
-#***************************************************
+#************************counting***************************
 
 def counting_sort(arr):
     # Find the maximum element in the array
@@ -151,7 +154,7 @@ def counting_sort(arr):
     
     return output
 
-#*****************************************************
+#**************************radix***************************
 
 def countingSort(arr, exp):
     n = len(arr)
@@ -184,7 +187,7 @@ def radix_Sort(arr):
         countingSort(arr, exp)
         exp *= 10
 
-#***************************************************
+#*************************bucket**************************
 
 def bucket_sort(arr):
     # Create empty buckets
@@ -207,7 +210,7 @@ def bucket_sort(arr):
     return sorted_arr
 
 
-#**********************************************************
+#***************************taking values from input*******************************
 
 def enterlist():
     lisst = []
@@ -221,14 +224,13 @@ def enterlist():
 
 while True:
     print(f'{"<"*50}\n1: bubble sort\n2: selection sort\n3: insertion sort\n4: merge sort\
-          \n5: quick sort\n6: heap Sort\n7: counting sort\n8: radix Sort\n9: bucket sort\n10: exit\n{">"*50}')
+          \n5: quick sort\n6: heap Sort\n7: counting sort\n8: radix Sort\n9: bucket sort\n10: tester\n11: exit\n{">"*50}')
     choice = input('which sort you want to use?:')
     if choice == '1':
         lstq =  enterlist()
         print(f" your list: {lstq}")
         sortedlst = bubble_sort(lstq)
         print(f" your sorted list: {sortedlst}")
-        print(f" your list: {lstq}")
         continue
     elif choice == '2':
         lstq =  enterlist()
@@ -263,13 +265,13 @@ while True:
     elif choice == '7':
         lstq =  enterlist()
         print(f" your list: {lstq}")
-        sortedlst = radix_Sort(lstq)
+        sortedlst = counting_sort(lstq)
         print(f" your sorted list: {sortedlst}")
         continue
     elif choice == '8':
         lstq =  enterlist()
         print(f" your list: {lstq}")
-        sortedlst = bubble_sort(lstq)
+        sortedlst = radix_Sort(lstq)
         print(f" your sorted list: {sortedlst}")
         continue
     elif choice == '9':
@@ -279,5 +281,95 @@ while True:
         print(f" your sorted list: {sortedlst}")
         continue
     elif choice == '10':
+        while True:
+            print(f'{"<"*50}\n1: bubble sort\n2: selection sort\n3: insertion sort\n4: merge sort\
+          \n5: quick sort\n6: heap Sort\n7: counting sort\n8: radix Sort\n9: bucket sort\n10: back\n{">"*50}')
+            ch = input('which sorting you wanna test?')
+            if ch == '1':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = bubble_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print(f" your list: {lstq}")
+                print("The time of execution of bubble sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '2':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = selection_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of selection sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '3':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = insertion_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of insertion sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '4':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = merge_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of merge sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '5':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = quick_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of quick sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '6':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = heap_Sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of heap sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '7':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = counting_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of counting sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '8':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = radix_Sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of radix sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '9':
+                lstq =  enterlist()
+                print(f" your list: {lstq}")
+                start = time.time()
+                sortedlst = bucket_sort(lstq)
+                end = time.time()
+                print(f" your sorted list: {sortedlst}")
+                print("The time of execution of bucket sorting is :",(end-start) * 10**3, "ms")
+                continue
+            elif ch == '10':
+                print('returning to the last page')
+                break
+    elif choice == '11':
         print('good bye deer :)')
         break
