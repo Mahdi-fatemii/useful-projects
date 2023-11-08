@@ -60,8 +60,8 @@ def visualization_csv_merged(fileName):
 
 def merge_two_csv():
     #getting the csv files names with input
-    csvFileName = input('enter your first csv file name in the directory:')
-    csvFileName2 = input('enter your second csv file name in the directory:')
+    csvFileName = input('enter your first csv file name in the same directory as this python file:')
+    csvFileName2 = input('enter your second csv file name in the same directory as this python file:')
     df1 = pd.read_csv(f'{csvFileName}.csv') #reading first csv files
     columns1 = column_names(csvFileName) #finding first csv file columns names
     df2 = pd.read_csv(f'{csvFileName2}.csv')#reading second csv files
