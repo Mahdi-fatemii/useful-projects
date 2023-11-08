@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import csv 
 
 
-def column_names():
-    df = pd.read_csv('Age1.csv')
+def column_names(fileName):
+    df = pd.read_csv(f'{fileName}.csv')
     list_of_column_names = list(df.columns)
     return list_of_column_names
 
@@ -20,7 +20,7 @@ def visualization_csv():
         x.append(row[0]) 
         y.append(row[1])
   
-    column = column_names()
+    column = column_names(fileName)
     plt.scatter(x, y, color = 'g',s = 100) 
     plt.xticks(rotation = 25) 
     plt.xlabel(f'{column[0]}') 
@@ -39,7 +39,7 @@ def visualization_csv_merged(fileName):
         x.append(row[0]) 
         y.append(row[1])
   
-    column = column_names()
+    column = column_names(fileName)
     plt.scatter(x, y, color = 'g',s = 100) 
     plt.xticks(rotation = 25) 
     plt.xlabel(f'{column[0]}') 
